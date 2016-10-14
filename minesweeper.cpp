@@ -23,4 +23,6 @@ int main (int argc, char ** argv){
 //cout << "OK" << endl;
    Validation v;
    v.printIntro();
+   v.validateParamINT("aa");
+
 }
