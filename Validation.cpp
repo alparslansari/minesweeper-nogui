@@ -2,20 +2,12 @@
 #include <iostream>
 #include <string>
 
+
 using namespace std;
 
 int const Validation::MAX_WIDTH=100;
-int const Validation::MAX_HEIGHT=100;
+int const Validation::MAX_HEIGHT=40;
 
-void Validation::printIntro()
-{
-   cout << "*******************************************************" << endl;
-   cout << "* Secure System: Project 2: Minesweepers ver 0.1      *" << endl;
-   cout << "*********************** Authors ***********************" << endl;
-   cout << "* Kaoru (Teddy) Katayama                              *" << endl;
-   cout << "* Alparslan Sari                                      *" << endl;
-   cout << "*******************************************************" << endl;
-}
 
 int Validation::isValidateParamINT(string param)
 {
@@ -23,7 +15,7 @@ int Validation::isValidateParamINT(string param)
    try
    {
    	  pari = stoi(param);
-   	  cout << pari << endl;
+   	  //cout << pari << endl;
    }
    catch (exception& e)
    {
@@ -32,6 +24,20 @@ int Validation::isValidateParamINT(string param)
    }   	
 
    return pari;
+}
+
+int Validation::isCoordParamINT(string param)
+{
+   int pari = 0;
+   try
+   {
+   	  pari = stoi(param);
+   	  return pari;
+   }
+   catch (exception& e)
+   {
+   	return 0;
+   }
 }
 
 bool Validation::isValidWidth(int width)
@@ -44,7 +50,7 @@ bool Validation::isValidWidth(int width)
 	}
 
 	// check if width > MAX;
-    if(width > 100)
+    if(width > Validation::MAX_WIDTH)
 	{
 	    cout << "Minesweepers:ERROR> Invalid width value! width exceeds the MAX value! width should be an even number between MIN=2 and MAX=" << Validation::MAX_WIDTH << endl;
 		return false;
@@ -63,7 +69,7 @@ bool Validation::isValidHeight(int height)
 	}
 
 	// check if height > MAX;
-    if(height > 100)
+    if(height > Validation::MAX_HEIGHT)
 	{
 	    cout << "Minesweepers:ERROR> Invalid height value! height exceeds the MAX value! height should be an even number between MIN=2 and MAX=" << Validation::MAX_HEIGHT << endl;
 		return false;
@@ -94,3 +100,24 @@ bool Validation::isValidNumOfMines(int width, int height, int mines)
 
 	return true;
 }
+
+bool Validation::isCoordinatesValid(string x, string y, int width, int height)
+{
+	int xc = Validation::isValidateParamINT(x);
+	if (xc == 0 || xc > width)
+	{
+		return true; // re-read x-coordinate
+	}
+
+	int yc = Validation::isValidateParamINT(y);
+	if (yc == 0 || yc > height)
+	{
+		return true; // re-read x-coordinate
+	}
+
+	return false;
+
+
+}
+
+

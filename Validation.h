@@ -11,8 +11,8 @@ class Validation {
    	  bool isValidNumOfMines(int width, int height, int mines);
       void printIntro();
       int isValidateParamINT(std::string param);
-     //   bool validateParamINT();
+      int isCoordParamINT(std::string param);
+      bool isCoordinatesValid(std::string x, std::string y, int width, int height);
 };
 
 #endif // VALIDATION_H
-

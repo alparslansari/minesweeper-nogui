@@ -1,6 +1,12 @@
 # minesweeper-nogui
 minesweeper without gui
 
+The game is implementation is now done. The game is fully functional. Player needs to use keyboard to play the game. Game instructions is displayed on the screen and very straight forward.
+
+# Example to run the game
+./minesweeper 4 4 4
+
+
 # To modify Validation Library
 vi Validation.h 
 
@@ -10,6 +16,6 @@ vi Validation.cpp
 vi minesweeper.cpp
 
 # To compile the project
-g++ minesweeper.cpp Validation.cpp
+g++ minesweeper.cpp Validation.cpp GraphicEngine.cpp -o minesweeper
 
 
