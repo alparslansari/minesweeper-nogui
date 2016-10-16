@@ -254,7 +254,22 @@ int main (int argc, char ** argv){
                {
                   if(board[x_axs][y_axs] == 0)
                   {
-                     cout << "ARGH... YOU BLOW UP!!!\n In your "<<movements<<endl;
+                     cout << "ARGH... YOU BLOW UP!!!\n In your "<<movements<<" move!"<<endl;
+                     for(int i = 1; i<=height; i++)
+                     {
+                        for(int j = 1; j<=width; j++)
+                        {
+                           if(board[i][j]==-1)
+                              cout << "~";
+                           else if(board[i][j]==0)
+                              cout << "M";
+                           else
+                              cout << board[i][j];
+
+                        }
+                           
+                        cout << "\n";
+                     }
                      gfx.drawYouLost();
                      return 1;
                   }
